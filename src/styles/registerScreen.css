@@ -1,0 +1,19 @@
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 25em;
+  gap: 1em;
+}
+
+label {
+  width: 15em;
+  display: flex;
+  /*align-items: flex-start;*/
+}
+
+input {
+  display: flex;
+  align-self: flex-end;
+}

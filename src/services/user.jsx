@@ -7,7 +7,7 @@ const register = (userData) => {
 };
 
 const login = (userCredentials) => {
-  return axios.post(`${BASE_URL}/register`, userCredentials);
+  return axios.post(`${BASE_URL}/login`, userCredentials);
 };
 
 export { register, login };

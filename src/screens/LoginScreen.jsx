@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { login } from "../services/user";
 import "../styles/registerScreen.css";
 import { useNavigate } from "react-router-dom";
 
-const LoginScreen = () => {
+const LoginScreen = ({ setSessionUsername }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -20,7 +21,9 @@ const LoginScreen = () => {
       localStorage.setItem("username", response.data.username);
       localStorage.setItem("name", response.data.name);
       localStorage.setItem("reservation_id", response.data.reservation_id);
+      setSessionUsername(response.data.username);
     });
+
     navigate("/");
   };
 

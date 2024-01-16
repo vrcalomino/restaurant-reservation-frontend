@@ -1,26 +1,29 @@
 import { Routes, Route } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import Navbar from "./components/Navbar";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import RegisterScreen from "./screens/RegisterScreen";
 import LoginScreen from "./screens/LoginScreen";
 
 function App() {
-  const [username, setUsername] = useState("");
-
-  useEffect(() => {
-    if (localStorage.getItem("username") !== null) {
-      setUsername(localStorage.getItem("username"));
-    }
-  }, []);
+  const [sessionUsername, setSessionUsername] = useState("");
 
   return (
     <>
-      <Navbar userInfo={username} />
+      <Navbar
+        userInfo={sessionUsername}
+        setSessionUsername={setSessionUsername}
+      />
       <Routes>
         <Route path="/" element={<HomeScreen />} />
-        <Route path="/register" element={<RegisterScreen />} />
-        <Route path="/login" element={<LoginScreen />} />
+        <Route
+          path="/register"
+          element={<RegisterScreen setSessionUsername={setSessionUsername} />}
+        />
+        <Route
+          path="/login"
+          element={<LoginScreen setSessionUsername={setSessionUsername} />}
+        />
       </Routes>
     </>
   );

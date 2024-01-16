@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
 
-const Navbar = ({ userInfo }) => {
+const Navbar = ({ userInfo, setSessionUsername }) => {
   const navigate = useNavigate();
 
   const handleRegistration = () => {
@@ -16,7 +16,7 @@ const Navbar = ({ userInfo }) => {
     localStorage.removeItem("username");
     localStorage.removeItem("name");
     localStorage.removeItem("reservation_id");
-    window.location.reload(true);
+    setSessionUsername("");
   };
 
   return (
